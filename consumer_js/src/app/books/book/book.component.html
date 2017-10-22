@@ -1,0 +1,33 @@
+<h1>Books <i class="fa fa-plus-circle" style="color:green" (click)="openModal(template)"></i></h1>
+<table>
+  <tr *ngFor="let book of books | async">
+    <td>{{book.id}}</td>
+    <td><input [(ngModel)]="book.title" (change)="onInputChanged(book)"></td>
+    <td><input [(ngModel)]="book.author.firstName" (change)="onInputChanged(book)"></td>
+    <td><input [(ngModel)]="book.author.lastName" (change)="onInputChanged(book)"></td>
+    <td>
+      <i class="fa fa-times" style="color: red" (click)="deleteBook(book.id)"></i></td>
+  </tr>
+</table>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">add Book</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <input class="form-control" [formControl]="form?.controls['id']" placeholder="book id">
+        <input class="form-control" [formControl]="form?.controls['title']" placeholder="book title">
+        <input class="form-control" [formControl]="form?.controls['author'].controls['id']" placeholder="author id">
+        <input class="form-control" [formControl]="form?.controls['author'].controls['firstName']" placeholder="author first name">
+        <input class="form-control" [formControl]="form?.controls['author'].controls['lastName']" placeholder="author last name">
+        <input type="submit" class="form-control"
+               value="Submit" [disabled]="form?.invalid">
+      </div>
+    </form>
+  </div>
+</ng-template>
