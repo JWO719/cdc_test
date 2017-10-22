@@ -10,24 +10,26 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
-import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
-
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/book")
 public class BookController {
 
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @RequestMapping(method = RequestMethod.GET, value = "")
     public List<Book> getBooks(){
         return this.bookService.getAllBooks();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @RequestMapping(method = RequestMethod.POST, value = "")
     public ResponseEntity<Book> createBook(@RequestBody Book book) throws Exception {
         if(this.bookService.addBook(book)){
-            return ResponseEntity.status(HttpStatus.CREATED).location(new URI("http://localhost:8080/book/"+book.getId())).body(book);
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .header("Access-Control-Allow-Headers","Location")
+                    .header("Access-Control-Expose-Headers", "Location")
+                    .location(new URI("http://localhost:8080/book/"+book.getId())).body(book);
         }else {
             throw new Exception();
         }
@@ -40,7 +42,7 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{bookId}")
     public Book getBook(@PathVariable int bookId, @RequestBody Book book){
-        bookService.update(bookId, book);
+        bookService.updateBook(bookId, book);
         return book;
     }
 

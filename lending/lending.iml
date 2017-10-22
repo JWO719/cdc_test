@@ -9,8 +9,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
+  <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
@@ -22,8 +21,6 @@
     </content>
     <orderEntry type="jdk" jdkName="jruby-9.1.13.0-p0" jdkType="JRUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.15.4, jruby-9.1.13.0-p0) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="puma (v3.10.0, jruby-9.1.13.0-p0) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

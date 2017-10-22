@@ -87,13 +87,24 @@ public class BookService {
         return authors.add(author);
     }
 
-    public static boolean deleteAuthor(Author author){
-        return books.remove(author);
+    public static boolean deleteAuthor(int id){
+        for(Author author: authors){
+            if(author.getId() == id){
+                authors.remove(author);
+                return true;
+            }
+        }
+        return false;
     }
 
-    public static void update(int id, Book book){
-        books.remove(id);
+    public static void updateBook(int id, Book book){
+        deleteBook(id);
         books.add(id, book);
+    }
+
+    public static void updateAuthor(int id, Author author){
+        authors.remove(id);
+        authors.add(id, author);
     }
 
 }
