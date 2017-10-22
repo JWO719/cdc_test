@@ -8,6 +8,9 @@ const routes: Routes = [
   },{
     path: 'author',
     loadChildren: './authors/authors.module#AuthorsModule'
+  },{
+    path: 'lending',
+    loadChildren: './lending/lending.module#LendingModule'
   }, {
     path: '',
     redirectTo: 'book',
