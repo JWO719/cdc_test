@@ -27,4 +27,9 @@ export class BookService {
   createBook(book: Book){
     return this.http.post(environment.libraryServiceUrl + '/book/', book);
   }
+
+  getBook(id: number) {
+    return this.http.get(environment.libraryServiceUrl + '/book/'+id)
+      .map(res => res.json());
+  }
 }

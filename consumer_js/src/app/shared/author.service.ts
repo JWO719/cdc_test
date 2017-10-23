@@ -28,4 +28,9 @@ export class AuthorService {
   createAuthor(author: Author){
     return this.http.post(environment.libraryServiceUrl + '/author/', author);
   }
+
+  getAuthor(id: any) {
+    return this.http.get(environment.libraryServiceUrl + '/author/'+id)
+      .map(res => res.json());
+  }
 }

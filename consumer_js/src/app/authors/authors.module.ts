@@ -5,6 +5,7 @@ import { AuthorsRoutingModule } from './authors-routing.module';
 import { AuthorComponent } from './author/author.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ModalModule} from "ngx-bootstrap";
+import { AuthorEntryComponent } from './author-entry/author-entry.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import {ModalModule} from "ngx-bootstrap";
     ReactiveFormsModule,
     ModalModule.forRoot()
   ],
-  declarations: [AuthorComponent]
+  declarations: [AuthorComponent, AuthorEntryComponent]
 })
 export class AuthorsModule { }

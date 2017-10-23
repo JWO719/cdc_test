@@ -18,6 +18,11 @@ export class LendingService {
       .map(res => res.json());
   }
 
+  public getOneLendings(id: number): Observable<Lending>{
+    return this.http.get(environment.lendingServiceUrl+'/lendings/'+id+'.json', {headers: this.headers})
+      .map(res => res.json());
+  }
+
   updateLending(lending: Lending) {
     return this.http.put(environment.lendingServiceUrl+'/lendings/'+lending.id+'.json', lending, {headers: this.headers})
   }

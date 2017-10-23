@@ -5,6 +5,7 @@ import { LendingRoutingModule } from './lending-routing.module';
 import { LendingComponent } from './lending/lending.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ModalModule} from "ngx-bootstrap";
+import { LendingEntryComponent } from './lending-entry/lending-entry.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import {ModalModule} from "ngx-bootstrap";
     ReactiveFormsModule,
     ModalModule.forRoot()
   ],
-  declarations: [LendingComponent]
+  declarations: [LendingComponent, LendingEntryComponent]
 })
 export class LendingModule { }
