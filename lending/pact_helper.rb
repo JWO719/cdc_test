@@ -17,7 +17,5 @@ Pact.service_provider "lending" do
   puts "test12344"
   honours_pact_with 'consumer-js' do
     pact_uri 'test/service_consumers/consumer-js-lending.json'
-    # pact.uri "https://opitzconsulting.pact.dius.com.au/pacts/provider/lending/consumer/consumer-js/latest",
-    #          {username: 'JQZXqfm4atv2fmnJ66KyZDgMG1ldk3z', password: '3KDCzUWI9kpON2u4fRDtgqERJodb8aa'}
   end
 end

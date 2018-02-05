@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 
 import com.example.demo.model.Book;
+import com.example.demo.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,10 +16,12 @@ import java.util.List;
 @Controller
 public class BookController {
 
+    @Autowired
+    BookService bookService;
+
     @RequestMapping("/book")
     public String showBooks(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-        RestTemplate restTemplate = new RestTemplate();
-        List<Book> books = restTemplate.getForObject("http://localhost:8080/book", List.class);
+        List<Book> books = bookService.getAllBooks();
         model.addAttribute("books", books);
         return "book";
     }

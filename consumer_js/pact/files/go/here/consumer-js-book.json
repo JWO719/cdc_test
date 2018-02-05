@@ -1,0 +1,121 @@
+{
+  "consumer": {
+    "name": "consumer-js"
+  },
+  "provider": {
+    "name": "book"
+  },
+  "interactions": [
+    {
+      "description": "a request for testing the lending service",
+      "request": {
+        "method": "GET",
+        "path": "/lendings.json"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": [
+          {
+            "id": 1,
+            "created_at": "2017-10-22T15:49:55.000Z",
+            "updated_at": "2017-10-22T20:31:52.000Z",
+            "title": "Es123",
+            "return_date": "2017-11-01"
+          }
+        ]
+      }
+    },
+    {
+      "description": "a request for say hello",
+      "request": {
+        "method": "GET",
+        "path": "/book",
+        "matchingRules": {
+          "$.path": {
+            "match": "regex",
+            "regex": "\\/book"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": [
+          {
+            "id": 0,
+            "title": "Es",
+            "author": {
+              "id": 0,
+              "firstName": "Stephen",
+              "lastName": "King"
+            }
+          },
+          {
+            "id": 1,
+            "title": "Chemie des Todes",
+            "author": {
+              "id": 1,
+              "firstName": "Simon",
+              "lastName": "Beckett"
+            }
+          },
+          {
+            "id": 2,
+            "title": "Per Anhalter durch die Galaxis",
+            "author": {
+              "id": 3,
+              "firstName": "Douglas",
+              "lastName": "Adams"
+            }
+          },
+          {
+            "id": 3,
+            "title": "Illuminati",
+            "author": {
+              "id": 2,
+              "firstName": "Dan",
+              "lastName": "Brown"
+            }
+          },
+          {
+            "id": 4,
+            "title": "Sakrileg",
+            "author": {
+              "id": 2,
+              "firstName": "Dan",
+              "lastName": "Brown"
+            }
+          },
+          {
+            "id": 5,
+            "title": "Kalte Asche",
+            "author": {
+              "id": 1,
+              "firstName": "Simon",
+              "lastName": "Beckett"
+            }
+          },
+          {
+            "id": 6,
+            "title": "Das Restaurant am Ende des Universums",
+            "author": {
+              "id": 3,
+              "firstName": "Douglas",
+              "lastName": "Adams"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  }
+}
